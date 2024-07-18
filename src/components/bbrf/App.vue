@@ -859,7 +859,6 @@
                 observer.observe(targetNode, config);
             },
             runAfterChange() {
-                console.log('Table content has changed');
                 var table = document.getElementById('tbl-urls');
                 for (var i = 0; i < table.rows.length; i++) {
                     var row = table.rows[i];
@@ -885,6 +884,3 @@
     }
 
 </script>
-
-
-// TODO add this!
