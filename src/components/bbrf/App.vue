@@ -60,6 +60,7 @@
                 couchdb: localStorage.getItem('couchdb') ? localStorage.getItem('couchdb') : 'https://demo.bbrf.me/bbrf',
                 couchdb_user: localStorage.getItem('couchdb-user') ? localStorage.getItem('couchdb-user') : 'bbrf',
                 couchdb_pass: localStorage.getItem('couchdb-pass') ? localStorage.getItem('couchdb-pass') : 'bbrf',
+                screenshots_url: 'https://example.com/screenshots/',
                 program: null,
                 stats: {
                     programs: 0,
@@ -212,6 +213,11 @@
                                     sortable: true
                                 },
                                 {
+                                    key: 'doc.screenshot',
+                                    label: 'Screenshot',
+                                    sortable: true
+                                },
+                                {
                                     key: 'doc.program',
                                     label: 'Program',
                                     sortable: false
@@ -224,6 +230,7 @@
                                 'doc.status': '',
                                 'doc.content_length': '',
                                 'doc.source': '',
+                                'doc.screenshot': '',
                                 'doc.program': ''
                             },
                             current_page: 1
@@ -460,7 +467,7 @@
 
                         return all_fields_match
                     })
-
+                    console.log(results)
                     return results
                 }
             },
@@ -835,7 +842,8 @@
                 for(var setting in this.settings) {
                     localStorage.setItem('settings.'+setting, this.settings[setting].value)
                 }
-            }
+            },
+
         },
         watch: {
             'docstore.domains.filter_domains': function() {

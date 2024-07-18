@@ -218,6 +218,20 @@
                         <b-button type="submit" variant="primary" @click.prevent="connect_server">Connect</b-button>
                       </b-form>
                       <hr />
+                        <b-form-group
+                        label="Screenshots URL:"
+                        label-for="screenshots_url"
+                        description="URL of server where screenshots are located. URL needs a / at the end!"
+                        >
+                        <b-form-input
+                        id="screenshots_url"
+                        v-model="screenshots_url"
+                        type="text"
+                        placeholder="https://example.com/screenshots/"
+                        required
+                      ></b-form-input>
+                        </b-form-group>
+                      <hr />
                     <b-form-group
                     label="Display Settings"
                     v-slot="{ ariaDescribedby }"
