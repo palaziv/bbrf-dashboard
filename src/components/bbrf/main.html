@@ -115,7 +115,7 @@
                                     </div>
                                 </template>
                                 <template #cell="{ value, field }">
-                                    <span v-if="field.isHTML" v-html="value"></span>
+                                    <span v-if="field.label === 'screenshot'" v-html="value"></span>
                                     <span v-else>{{ value }}</span>
                                   </template>
                                 <template slot="top-row" slot-scope="{ fields }">
