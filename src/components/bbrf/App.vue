@@ -465,7 +465,6 @@
 
                         return all_fields_match
                     })
-                    console.log(results)
                     return results
                 }
             },
