@@ -116,12 +116,6 @@
                                         <p><strong>Loading...</strong></p>
                                     </div>
                                 </template>
-
-                                <template slot-scope="{ fields }">
-                                    <span v-html="field.value"></span>
-                                  </template>
-                                
-
                                 <template slot="top-row" slot-scope="{ fields }">
                                     <td v-for="field in fields" :key="field.key">
                                         <input type="search" width="80%" v-model="docs.table.filters[field.key]" placeholder="filter" :class="'form-control' + (field.key in docs.table.filters && docs.table.filters[field.key].length > 0 ? ' bg-light border-warning' : '')"/>

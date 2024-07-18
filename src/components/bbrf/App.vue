@@ -54,6 +54,9 @@
             'b-toggle': VBToggle,
             'b-tooltip': VBTooltip,
         },
+        mounted() {
+            this.observeTable();
+        },
         data: function() {
             return {
                 title: "BBRF dashboard",
@@ -840,6 +843,35 @@
                     localStorage.setItem('settings.'+setting, this.settings[setting].value)
                 }
             },
+            observeTable() {
+                const targetNode = document.getElementById('tbl-urls');
+                const config = { childList: true, subtree: true };
+
+                const callback = (mutationsList) => {
+                    for (const mutation of mutationsList) {
+                    if (mutation.type === 'childList') {
+                        this.runAfterChange();
+                    }
+                    }
+                };
+
+                const observer = new MutationObserver(callback);
+                observer.observe(targetNode, config);
+            },
+            runAfterChange() {
+                console.log('Table content has changed');
+                var table = document.getElementById('tbl-urls');
+                for (var i = 0, row; row = table.rows[i]; i++) {
+                    for (var j = 0, col; col = row.cells[j]; j++) {
+                        if (col.innerText.includes('<img')) {
+                            var imgTag = col.innerText;
+                            if (imgTag) {
+                                col.innerHTML = imgTag;
+                            }
+                        }
+                    }
+                }
+            }
 
         },
         watch: {
@@ -851,3 +883,6 @@
     }
 
 </script>
+
+
+// TODO add this!
