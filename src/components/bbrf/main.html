@@ -1,4 +1,5 @@
 <div id="app">
+    <script>console.log('foo')</script>
     <b-navbar variant="success" type="light" v-if="connection_status == 'connected'">&nbsp;</b-navbar>
     <b-navbar variant="warning" type="light" v-if="connection_status == 'not connected'">
         <div class="text-center" style="width: 100%">
@@ -104,7 +105,7 @@
                                 </span>
                             </div>
                             <br />
-                            <div>foobar</div>
+                            
                             <b-table :class="settings.full_width_table.value ? 'full-width' : ''" show-empty striped bordered :busy="docs.table.isBusy" :items="records_filtered(doctype)" :fields="handle_computed_call(`fields_filtered_${doctype}`)" :options="docs.table.options" :id="'tbl-'+doctype" :per-page="table_pagination_records" :current-page="docs.table.current_page">
                             
                                 <template #table-busy>
