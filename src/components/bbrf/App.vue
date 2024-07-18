@@ -389,8 +389,7 @@
                                 if(['.jpg','.jpeg','.png','.bmp'].some(char => value.endsWith(char)))
                                     return `<img src="${this.screenshots_url}${value}" alt="Screenshot" style="max-width: 100px;" />`
                                 return this.formatTagAsTimestamp(value) 
-                            },
-                            isHTML: true
+                            }
                         })
                     }
                 }

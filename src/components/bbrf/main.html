@@ -115,10 +115,9 @@
                                     </div>
                                 </template>
 
-                                <template #cell="{ value, fields }">
-                                    <span v-if="fields.isHTML" v-html="value"></span>
-                                    <span v-else>{{ value }}</span>
-                                  </template>
+                                <template v-slot:cell(screenshot)="{ value }">
+                                    <b-link :href="value">link</b-link>
+                                </template>
 
                                 <template slot="top-row" slot-scope="{ fields }">
                                     <td v-for="field in fields" :key="field.key">
