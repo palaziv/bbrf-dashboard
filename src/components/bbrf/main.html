@@ -115,9 +115,8 @@
                                     </div>
                                 </template>
                                 <template #cell="{ value, field }">
-                                    <span v-if="field.label === 'screenshot'" v-html="value"></span>
-                                    <span v-else>{{ value }}</span>
-                                  </template>
+                                    <span v-html="value"></span>
+                                </template>
                                 <template slot="top-row" slot-scope="{ fields }">
                                     <td v-for="field in fields" :key="field.key">
                                         <input type="search" width="80%" v-model="docs.table.filters[field.key]" placeholder="filter" :class="'form-control' + (field.key in docs.table.filters && docs.table.filters[field.key].length > 0 ? ' bg-light border-warning' : '')"/>
