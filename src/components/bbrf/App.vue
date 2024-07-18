@@ -31,7 +31,6 @@
     import PouchDB from 'pouchdb'
     import 'bootstrap/dist/css/bootstrap.css'
     import 'bootstrap-vue/dist/bootstrap-vue.css'
-    import HtmlRenderer from './HtmlRenderer.vue';
 
     export default {
         name: 'App',
@@ -50,7 +49,6 @@
             BCollapse,
             BButton,
             BCard,
-            HtmlRenderer,
         },
         directives: {
             'b-toggle': VBToggle,
