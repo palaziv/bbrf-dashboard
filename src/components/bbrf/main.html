@@ -115,9 +115,9 @@
                                     </div>
                                 </template>
 
-                                <template v-slot:cell(screenshot)="{ value }">
-                                    <b-link :href="value">link</b-link>
-                                </template>
+                                <template v-for="field in fields" v-slot:[`cell(${field.key})`]="data">
+                                    <span v-html="data.item[field.key]"></span>
+                                  </template>
 
                                 <template slot="top-row" slot-scope="{ fields }">
                                     <td v-for="field in fields" :key="field.key">
