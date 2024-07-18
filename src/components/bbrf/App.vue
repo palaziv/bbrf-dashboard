@@ -861,8 +861,10 @@
             runAfterChange() {
                 console.log('Table content has changed');
                 var table = document.getElementById('tbl-urls');
-                for (var i = 0, row; row = table.rows[i]; i++) {
-                    for (var j = 0, col; col = row.cells[j]; j++) {
+                for (var i = 0; i < table.rows.length; i++) {
+                    var row = table.rows[i];
+                    for (var j = 0; j < row.cells.length; j++) {
+                        var col = row.cells[j];
                         if (col.innerText.includes('<img')) {
                             var imgTag = col.innerText;
                             if (imgTag) {
