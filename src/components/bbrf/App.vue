@@ -213,11 +213,6 @@
                                     sortable: true
                                 },
                                 {
-                                    key: 'doc.screenshot',
-                                    label: 'Screenshot',
-                                    sortable: true
-                                },
-                                {
                                     key: 'doc.program',
                                     label: 'Program',
                                     sortable: false
@@ -230,7 +225,6 @@
                                 'doc.status': '',
                                 'doc.content_length': '',
                                 'doc.source': '',
-                                'doc.screenshot': '',
                                 'doc.program': ''
                             },
                             current_page: 1
@@ -391,7 +385,11 @@
                             key: `doc.tags.${tag.name}`,
                             label: tag.name,
                             sortable: true,
-                            formatter: value => { return this.formatTagAsTimestamp(value) }
+                            formatter: value => {
+                                if(['.jpg','.jpeg','.png','.bmp'].some(char => value.endsWith(char)))
+                                    return `<img src="${this.screenshots_url}${value}" alt="Screenshot" style="max-width: 100px;" />`
+                                return this.formatTagAsTimestamp(value) 
+                            }
                         })
                     }
                 }
