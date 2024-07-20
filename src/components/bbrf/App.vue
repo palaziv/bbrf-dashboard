@@ -390,7 +390,7 @@
                             sortable: true,
                             formatter: value => {
                                 if(['.jpg','.jpeg','.png','.bmp'].some(char => value.endsWith(char)))
-                                    return `<img src="${this.screenshots_url}${value}" alt="Screenshot" style="max-width: 100px;" />`
+                                    return `<img src="${this.screenshots_url}${value}" alt="Screenshot" style="max-width: 300px;" />`
                                 return this.formatTagAsTimestamp(value) 
                             }
                         })
